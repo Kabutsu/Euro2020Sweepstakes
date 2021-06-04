@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Button = () => (
+type IProps = {};
+
+const Button = ({}: IProps) => (
     <button type="button" id="button" onClick={() => alert('click!')}>
         Click me
     </button>
