@@ -1,8 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
-import Button from './components/button';
+import logo from '../../images/logo.svg';
+import './home.css';
+import Button from '../../components/button';
 
-function App() {
+function Home() {
   return (
     <div className="App">
       <header className="App-header">
@@ -24,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

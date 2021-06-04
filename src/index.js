@@ -1,8 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Route, Switch } from 'react-router';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import RouteProvider from './route-provider';
+
+const App = () => (
+  <RouteProvider>
+    {({ routes }) => (
+      <Switch>
+        {routes.map(route => (
+          <Route
+            exact
+            key={`route_${route.id}`}
+            path={route.path}
+            component={route.component}
+          />
+        ))}
+      </Switch>
+    )}
+  </RouteProvider>
+);
 
 ReactDOM.render(
   <React.StrictMode>
