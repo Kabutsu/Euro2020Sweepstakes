@@ -1,7 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from '../../images/logo.svg';
+import './home.css';
+import Button from '../../components/button';
 
-function App() {
+function Home() {
   return (
     <div className="App">
       <header className="App-header">
@@ -17,9 +18,10 @@ function App() {
         >
           Learn React
         </a>
+        <Button />
       </header>
     </div>
   );
 }
 
-export default App;
+export default Home;
