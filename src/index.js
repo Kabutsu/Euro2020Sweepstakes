@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch } from 'react-router';
+import Layout from './components/layout';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import RouteProvider from './route-provider';
@@ -8,16 +9,18 @@ import RouteProvider from './route-provider';
 const App = () => (
   <RouteProvider>
     {({ routes }) => (
-      <Switch>
-        {routes.map(route => (
-          <Route
-            exact
-            key={`route_${route.id}`}
-            path={route.path}
-            component={route.component}
-          />
-        ))}
-      </Switch>
+      <Layout>
+        <Switch>
+          {routes.map(route => (
+            <Route
+              exact
+              key={`route_${route.id}`}
+              path={route.path}
+              component={route.component}
+            />
+          ))}
+        </Switch>
+      </Layout>
     )}
   </RouteProvider>
 );
