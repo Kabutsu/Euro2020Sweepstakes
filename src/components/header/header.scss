@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/base.scss';
 
 .c-header__container {
     display: flex;
@@ -12,18 +12,29 @@
     width: 100%;
     height: 10vh;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 7px 35vw;
+    padding: 7px 0;
+    margin: 0 auto;
     background: $dark-1;
 
-    &__img {
-        width: 10vh;
-        height: 10vh;
-    }
-
     &__title {
-        font-size: 30px;
-        color: $white;
+        display: flex;
+        align-items: center;
+        height: 10vh;
+        max-width: 75vw;
+        margin: 0 auto;
+
+        &-img {
+            width: 10vh;
+            height: 10vh;
+        }
+    
+        &-text {
+            font-size: 30px;
+            color: $white;
+        }
+
+        & > * {
+            gap: 10px;
+        }
     }
 }

@@ -12,8 +12,10 @@ const Header = ({ className }: IProps) => {
     return (
         <div className="c-header__container">
             <div className={`c-header ${className}`}>
-                <img className="c-header__img" src={logo} />
-                <span className="c-header__title">Euro 2020 Sweepstakes</span>
+                <div className="c-header__title">
+                    <img className="c-header__title-img" src={logo} />
+                    <span className="c-header__title-text">Euro 2020 Sweepstakes</span>
+                </div>
             </div>
         </div>
     );

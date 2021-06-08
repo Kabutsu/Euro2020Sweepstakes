@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import Header from '../header';
 
+import './layout.scss';
+
 type IProps = {};
 
 const Layout: FC<IProps> = ({ children }) => (
