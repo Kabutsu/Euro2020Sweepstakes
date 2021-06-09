@@ -1,29 +1,41 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import logo from '../../images/logo.svg';
-import Button from '../../components/button';
+import PlayerInfo, { TDrawData, TPlayerData } from '../player-info';
+import TeamDraw from '../team-draw';
 
-import './home.css';
+import './home.scss';
+
+enum Stage {
+  Info,
+  Draw,
+};
 
 const Home = () => {
+  const [currentStage, setCurrentStage] = useState<Stage>(Stage.Info);
+  const [drawData, setDrawData] = useState<TDrawData>(null);
+
+  useEffect(() => {
+    if (drawData?.playerData.length) {
+      setCurrentStage(Stage.Draw);
+    }
+  }, [drawData]);
+
+  const renderStage = () => {
+    switch(currentStage) {
+      case Stage.Info:
+        return (
+          <PlayerInfo setPlayerData={(data: TDrawData) => setDrawData(data)} />
+        );
+      case Stage.Draw:
+        return (
+          <TeamDraw drawData={drawData} onReturn={() => setCurrentStage(Stage.Info)} />
+        );
+    }
+  }
+
   return (
-    <div className="App">
-      <span className="u-text--title">Names of People Playing</span>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button />
-      </header>
+    <div className="p-home">
+      {renderStage()}
     </div>
   );
 }
