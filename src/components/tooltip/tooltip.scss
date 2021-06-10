@@ -38,6 +38,8 @@
     pointer-events: none;
     width: 250px;
     white-space: break-spaces;
+    font-weight: bold;
+    text-align: left;
 
     &:after {
         content: '';

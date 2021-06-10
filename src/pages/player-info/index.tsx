@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { RadioGroup, RadioOptionType } from 'src/components/input-radio';
 import InputToggle from 'src/components/input-toggle';
 import PlayerForm from 'src/components/player-form';
+import Tooltip from 'src/components/tooltip';
 import { DataOptionType } from 'src/types/general';
 
 import './player-info.scss';
@@ -72,11 +73,23 @@ const PlayerInfo = ({ setPlayerData }: IProps) => {
                 {!oneTeamEach && (
                     <>
                         <div className="p-player-info__input">
-                            <label htmlFor="balanceTeams">Split Options Evenly?</label>
+                            <label htmlFor="balanceTeams">
+                                Split Options Evenly?
+                                <Tooltip
+                                    className="p-player-info__input-tooltip"
+                                    label={'Selecting "Yes" will give everyone the same number of teams (this may mean some teams are not drawn)'}
+                                />
+                            </label>
                             <InputToggle id="balance-teams" value={balanceTeams} onChange={(on: boolean) => setBalanceTeams(on)} />
                         </div>
                         <div className="p-player-info__input">
-                            <label htmlFor="allowTeamsFromSameGroup">Allow Teams from the Same Group?</label>
+                            <label htmlFor="allowTeamsFromSameGroup">
+                                Allow Teams from the Same Group?
+                                <Tooltip
+                                    className="p-player-info__input-tooltip"
+                                    label={'Let players draw teams from the same group (e.g. England and Scotland)'}
+                                />
+                            </label>
                             <InputToggle id="allow-teams-from-same-group" value={allowTeamsFromSameGroup} onChange={(on: boolean) => setAllowTeamsFromSameGroup(on)} />
                         </div>
                         <div className="p-player-info__input">
@@ -93,7 +106,7 @@ const PlayerInfo = ({ setPlayerData }: IProps) => {
                 )}
             </div>
             <div className="p-player-info__section">
-                <span className="u-text--title">Names of People Playing</span>
+                <span className="u-text--title">Names of People Playing (Max. 24)</span>
                 <PlayerForm onSubmit={handleSubmit} />
             </div>
         </div>

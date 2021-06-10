@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import './button.scss';
+
 type IProps = {
     type?: 'submit' | 'reset' | 'button';
     className?: string;
@@ -7,7 +9,7 @@ type IProps = {
 };
 
 const Button: FC<IProps> = ({ type = 'button', className, onClick, children }) => (
-    <button type={type} id="button" onClick={onClick} className={`c-button ${className}`}>
+    <button type={type} id="button" onClick={onClick} className={`${className} c-button`}>
         {children}
     </button>
 );

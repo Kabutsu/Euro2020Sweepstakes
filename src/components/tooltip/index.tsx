@@ -4,10 +4,11 @@ import './tooltip.scss';
 
 type IProps = {
     label: string;
+    className?: string;
 };
 
-const Tooltip = ({ label }: IProps) => (
-    <div className="c-tooltip">
+const Tooltip = ({ label, className }: IProps) => (
+    <div className={`c-tooltip ${className}`}>
         <span className="c-tooltip__mark">?</span>
         <div className="c-tooltip__label">
             {label}
