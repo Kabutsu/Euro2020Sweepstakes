@@ -1,0 +1,44 @@
+@import '../../styles/base.scss';
+
+.c-results-box {
+    display: flex;
+    width: calc(33% - 80px);
+    background: $blue;
+    color: $white;
+    flex-direction: column;
+}
+
+.c-results-box__title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.c-results-box__countries {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    &-info {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 15px;
+
+        & > img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+        }
+
+        & > span {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+
+}

@@ -7,6 +7,8 @@ import { countries } from '../../data/countries';
 
 import './team-draw.scss';
 import { shuffle, shuffleCopy } from 'src/services/array';
+import Button from 'src/components/button';
+import ResultsBox from 'src/components/results-box';
 
 type IProps = {
     drawData: TDrawData;
@@ -125,7 +127,7 @@ const drawTeams = ({ playerData, balanceDraw, balanceTeams, oneTeamEach, allowTe
 };
 
 const TeamDraw = ({ drawData, onReturn }: IProps) => {
-    const [teamDraw, setTeamDraw] = useState<any>();
+    const [teamDraw, setTeamDraw] = useState<Array<TPlayerDraw>>([]);
 
     useEffect(() => {
         const draw = drawTeams(drawData);
@@ -135,10 +137,18 @@ const TeamDraw = ({ drawData, onReturn }: IProps) => {
 
     return (
         <div className="p-team-draw">
-            {drawData?.playerData.map(({ playerName }: TPlayerData) => (
-                <span>{playerName}</span>
-            ))}
-            <button type="button" onClick={onReturn}>Return</button>
+            <div className="p-team-draw__info">
+                {teamDraw.length ? (
+                    teamDraw.map(draw => (
+                        <ResultsBox result={draw} />
+                    ))
+                ) : (
+                    drawData?.playerData.map(({ playerName }: TPlayerData) => (
+                        <span>{playerName}</span>
+                    ))
+                )}
+            </div>
+            <Button onClick={onReturn}>Return</Button>
         </div>
     );
 };
