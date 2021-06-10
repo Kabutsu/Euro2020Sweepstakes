@@ -2,6 +2,9 @@ import { Field, Form, Formik } from 'formik';
 import { TPlayerData } from 'src/pages/player-info';
 
 import { TDefaultObject } from 'src/types/general';
+import Button from '../button';
+
+import './player-form.scss';
 
 type IProps = {
     onSubmit: (playerNames: Array<TPlayerData>) => void;
@@ -28,18 +31,22 @@ const PlayerForm = ({ onSubmit }: IProps) => {
             onSubmit={handleSubmit}
         >
             <Form>
-                {Object.keys(initialValues).map((key: string) => {
-                    const playerId = parseInt(key.split('_')[1]);
+                <div className="c-player-form">
+                    <div className="c-player-form__players">
+                        {Object.keys(initialValues).map((key: string) => {
+                            const playerId = parseInt(key.split('_')[1]);
 
-                    return (
-                        <>
-                            <label key={`${key}_label`} htmlFor={key}>Person {playerId + 1}</label>
-                            <Field key={`${key}_field`} id={key} name={key} placeholder="Enter Name"></Field>
-                        </>
-                    );
-                })}
-                
-                <button type="submit">Submit</button>
+                            return (
+                                <div className="c-player-form__players-input">
+                                    <label key={`${key}_label`} htmlFor={key}>Person {playerId + 1}</label>
+                                    <Field key={`${key}_field`} id={key} name={key} placeholder="Enter Name"></Field>
+                                </div>
+                            );
+                        })}
+                    </div>
+                    
+                    <Button type="submit" className="c-player-form__submit">Submit</Button>
+                </div>
             </Form>
         </Formik>
     );

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-type IProps = {};
+type IProps = {
+    type?: 'submit' | 'reset' | 'button';
+    className?: string;
+    onClick?: () => void;
+};
 
-const Button = ({}: IProps) => (
-    <button type="button" id="button" onClick={() => alert('click!')}>
-        Click me
+const Button: FC<IProps> = ({ type = 'button', className, onClick, children }) => (
+    <button type={type} id="button" onClick={onClick} className={`c-button ${className}`}>
+        {children}
     </button>
 );
 

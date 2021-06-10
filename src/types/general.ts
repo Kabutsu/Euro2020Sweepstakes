@@ -25,3 +25,9 @@ export type TPlayerDraw = {
     playerData: TPlayerData;
     countries: Array<TCountry>;
 }
+
+export type DataOptionType = {
+    label: string;
+    value: number;
+    disabled?: boolean;
+}
