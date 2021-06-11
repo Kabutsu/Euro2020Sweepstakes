@@ -45,7 +45,7 @@ type IProps = {
 }
 
 const PlayerInfo = ({ setPlayerData }: IProps) => {
-    const [balanceDraw, setBalanceDraw] = useState<Balance>(Balance.Full);
+    const [balanceDraw, setBalanceDraw] = useState<Balance>(Balance.Some);
     const [balanceTeams, setBalanceTeams] = useState<boolean>(false);
     const [allowTeamsFromSameGroup, setAllowTeamsFromSameGroup] = useState<boolean>(false);
     const [oneTeamEach, setOneTeamEach] = useState<boolean>(true);

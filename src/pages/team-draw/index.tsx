@@ -14,6 +14,8 @@ type IProps = {
     onReturn: () => void;
 };
 
+const animationDelayMS = 2000;
+
 const TeamDraw = ({ drawData, onReturn }: IProps) => {
     const [teamDraw, setTeamDraw] = useState<Array<TPlayerDraw>>([]);
 
@@ -27,8 +29,8 @@ const TeamDraw = ({ drawData, onReturn }: IProps) => {
         <div className="p-team-draw">
             <div className="p-team-draw__info">
                 {teamDraw.length ? (
-                    teamDraw.map(draw => (
-                        <ResultsBox result={draw} />
+                    teamDraw.map((draw, index) => (
+                        <ResultsBox result={draw} animationStartDelay={index * animationDelayMS} animationWaitDelay={teamDraw.length * animationDelayMS} />
                     ))
                 ) : (
                     drawData?.playerData.map(({ playerName }: TPlayerData) => (
