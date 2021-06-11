@@ -11,7 +11,7 @@ const ResultsBox = ({ result }: IProps) => (
         <div className="c-results-box__countries">
             {result.countries.sort((a, b) => b.id - a.id).map(country => (
                 <div className="c-results-box__countries-info">
-                    <img src={`${process.env.PUBLIC_URL}/flags/england.png`} />
+                    <img src={`${process.env.PUBLIC_URL}/flags/${country.name.toLowerCase().replaceAll(/(\s)/g, '-')}-flag-square-icon-128.png`} />
                     <span>{country.name}</span>
                 </div>
             ))}

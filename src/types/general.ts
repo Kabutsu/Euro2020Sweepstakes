@@ -16,7 +16,6 @@ export enum Group {
 export type TCountry = {
     id: number;
     name: string;
-    img: string;
     group: Group;
     groupSeed: 1 | 2 | 3 | 4;
 }
